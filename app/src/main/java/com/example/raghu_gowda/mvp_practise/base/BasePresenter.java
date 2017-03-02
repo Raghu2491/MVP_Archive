@@ -7,7 +7,6 @@ import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
-
 public class BasePresenter implements Presenter {
 
     private CompositeSubscription compositeSubscription;
@@ -47,7 +46,7 @@ public class BasePresenter implements Presenter {
         }
     }
 
-    protected  <E> void subscribe(Observable<E> observable, Observer<E> observer){
+    protected  <E> void subscribe(Observable<E> observable, CategoryPresenter observer){
         Subscription subscription=
                 observable.subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())

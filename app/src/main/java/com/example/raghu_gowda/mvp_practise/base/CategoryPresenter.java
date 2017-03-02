@@ -6,9 +6,11 @@ import android.util.Log;
 import com.example.raghu_gowda.mvp_practise.Model.Category;
 import com.example.raghu_gowda.mvp_practise.Service.CategoryViewInterface;
 
-import rx.Observer;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
-public class CategoryPresenter extends BasePresenter implements Observer<Category>{
+
+public class CategoryPresenter extends BasePresenter implements Observer<Category> {
 
     private CategoryViewInterface categoryViewInterface;
 
@@ -16,14 +18,21 @@ public class CategoryPresenter extends BasePresenter implements Observer<Categor
         this.categoryViewInterface = categoryViewInterface;
     }
 
-    @Override
-    public void onCompleted() {
-        categoryViewInterface.completed();
-    }
+
 
     @Override
     public void onError(Throwable e) {
         categoryViewInterface.onError(e.getMessage());
+    }
+
+    @Override
+    public void onComplete() {
+        categoryViewInterface.completed();
+    }
+
+    @Override
+    public void onSubscribe(Disposable d) {
+
     }
 
     @Override
