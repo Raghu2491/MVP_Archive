@@ -25,7 +25,6 @@ public class CategoryApplication extends Application{
                 .networkComponent(getNetworkComponent())
                 .build();
 
-
     }
 
     private NetworkComponent getNetworkComponent() {

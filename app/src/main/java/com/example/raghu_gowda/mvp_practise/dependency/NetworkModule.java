@@ -5,6 +5,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import retrofit2.Retrofit;
+import retrofit2.SimpleXmlConverterFactory;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -21,17 +22,16 @@ public class NetworkModule {
     RxJavaCallAdapterFactory provideRxJavaCallAdapterFactory(){
         return RxJavaCallAdapterFactory.create();
     }
+//    @Provides @Singleton
+//    GsonConverterFactory provideGsonConverterFactory(){
+//        return GsonConverterFactory.create();
+//    }
     @Provides @Singleton
-    GsonConverterFactory provideGsonConverterFactory(){
-        return GsonConverterFactory.create();
-    }
-
-    @Provides @Singleton
-    public Retrofit provideRetrofit(RxJavaCallAdapterFactory rxJavaCallAdapterFactory,GsonConverterFactory gsonConverterFactory){
+    public Retrofit provideRetrofit(RxJavaCallAdapterFactory rxJavaCallAdapterFactory){
         return new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addCallAdapterFactory(rxJavaCallAdapterFactory)
-                    .addConverterFactory(gsonConverterFactory)
+                    .addConverterFactory(SimpleXmlConverterFactory.create())
                     .build();
     }
 }

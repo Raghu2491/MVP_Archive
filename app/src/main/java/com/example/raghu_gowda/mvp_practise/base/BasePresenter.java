@@ -46,12 +46,12 @@ public class BasePresenter implements Presenter {
         }
     }
 
-    protected  <E> void subscribe(Observable<E> observable, CategoryPresenter observer){
+    protected  <E> void subscribe(Observable<E> observable, AdPresenter observer){
         Subscription subscription=
                 observable.subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .unsubscribeOn(Schedulers.computation())
-                .subscribe(observer);
+                .subscribe((Observer<? super E>) observer);
 
         resolveSubscription().add(subscription);
     }

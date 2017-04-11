@@ -1,7 +1,7 @@
 package com.example.raghu_gowda.mvp_practise.dependency;
 
 
-import com.example.raghu_gowda.mvp_practise.MainActivity;
+import com.example.raghu_gowda.mvp_practise.UI.MainActivity;
 
 import dagger.Component;
 

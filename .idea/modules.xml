@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/MVP_Archive.iml" filepath="$PROJECT_DIR$/MVP_Archive.iml" />
       <module fileurl="file://$PROJECT_DIR$/MVP_Practise.iml" filepath="$PROJECT_DIR$/MVP_Practise.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
