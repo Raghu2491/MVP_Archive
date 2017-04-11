@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.raghu_gowda.mvp_practise.Adapter.Ad_Adapter;
+import com.example.raghu_gowda.mvp_practise.Model.Ad;
 import com.example.raghu_gowda.mvp_practise.Model.Ads;
 import com.example.raghu_gowda.mvp_practise.Model.Category;
 import com.example.raghu_gowda.mvp_practise.Model.MyPojo;
@@ -141,8 +142,7 @@ public class MainActivity extends AppCompatActivity implements CategoryViewInter
     }
 
     @Override
-    public void onCardClicked(int position,String name) {
-        Toast.makeText(getApplicationContext(),name,Toast.LENGTH_LONG).show();
+    public void onCardClicked(int position,Ad name) {
 
     }
 }

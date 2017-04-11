@@ -66,13 +66,13 @@ public class Ad_Adapter extends RecyclerView.Adapter<Ad_Adapter.ViewHolder> {
 
         @Override
         public void onClick(View v) {
-            mlistener.onCardClicked(getLayoutPosition(),ads.get(getAdapterPosition()).getCategoryName());
+            mlistener.onCardClicked(getLayoutPosition(),ads.get(getAdapterPosition()));
         }
 
 
     }
 
     public interface OnEachcardSelected{
-        void onCardClicked(int position,String name);
+        void onCardClicked(int position,Ad _ad);
     }
 }
