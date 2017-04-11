@@ -1,5 +1,8 @@
 package com.example.raghu_gowda.mvp_practise.Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
 
@@ -7,7 +10,7 @@ import org.simpleframework.xml.Root;
  * Created by Admin on 4/10/17.
  */
 @Root(name="ad")
-public class Ad
+public class Ad implements Parcelable
 {
     @Element(name="campaignId")
     private String campaignId;
@@ -49,6 +52,41 @@ public class Ad
     private String numberOfRatings;
     @Element(name="minOSVersion",required = false)
     private String minOSVersion;
+
+    protected Ad(Parcel in) {
+        campaignId = in.readString();
+        appId = in.readString();
+        campaignTypeId = in.readString();
+        productDescription = in.readString();
+        productId = in.readString();
+        categoryName = in.readString();
+        callToAction = in.readString();
+        bidRate = in.readString();
+        campaignDisplayOrder = in.readString();
+        averageRatingImageURL = in.readString();
+        rating = in.readString();
+        productName = in.readString();
+        productThumbnail = in.readString();
+        clickProxyURL = in.readString();
+        creativeId = in.readString();
+        homeScreen = in.readString();
+        impressionTrackingURL = in.readString();
+        isRandomPick = in.readString();
+        numberOfRatings = in.readString();
+        minOSVersion = in.readString();
+    }
+
+    public static final Creator<Ad> CREATOR = new Creator<Ad>() {
+        @Override
+        public Ad createFromParcel(Parcel in) {
+            return new Ad(in);
+        }
+
+        @Override
+        public Ad[] newArray(int size) {
+            return new Ad[size];
+        }
+    };
 
     public String getCampaignId ()
     {
@@ -185,4 +223,35 @@ public class Ad
     {
         return "ClassPojo [campaignId = "+campaignId+", appId = "+appId+", campaignTypeId = "+campaignTypeId+", productDescription = "+productDescription+", productId = "+productId+", categoryName = "+categoryName+", callToAction = "+callToAction+", bidRate = "+bidRate+", campaignDisplayOrder = "+campaignDisplayOrder+", averageRatingImageURL = "+averageRatingImageURL+", rating = "+rating+", productName = "+productName+", productThumbnail = "+productThumbnail+"]";
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(campaignId);
+        dest.writeString(appId);
+        dest.writeString(campaignTypeId);
+        dest.writeString(productDescription);
+        dest.writeString(productId);
+        dest.writeString(categoryName);
+        dest.writeString(callToAction);
+        dest.writeString(bidRate);
+        dest.writeString(campaignDisplayOrder);
+        dest.writeString(averageRatingImageURL);
+        dest.writeString(rating);
+        dest.writeString(productName);
+        dest.writeString(productThumbnail);
+        dest.writeString(clickProxyURL);
+        dest.writeString(creativeId);
+        dest.writeString(homeScreen);
+        dest.writeString(impressionTrackingURL);
+        dest.writeString(isRandomPick);
+        dest.writeString(numberOfRatings);
+        dest.writeString(minOSVersion);
+    }
+
+    public Ad(){}
 }

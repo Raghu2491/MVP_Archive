@@ -1,6 +1,7 @@
 package com.example.raghu_gowda.mvp_practise.UI;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -143,6 +144,8 @@ public class MainActivity extends AppCompatActivity implements CategoryViewInter
 
     @Override
     public void onCardClicked(int position,Ad name) {
-
+        Intent intent=new Intent(MainActivity.this,Main3Activity.class);
+        intent.putExtra("Ads",name);
+        startActivity(intent);
     }
 }
